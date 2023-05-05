@@ -4,14 +4,10 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   // TODO
-  const horn = document.getElementById("horn-select");  // horn select
-  const volume = document.getElementById("volume");     // volume select
-  const img = document.querySelector("img");            // horn img
-  const icon = document.querySelector("div img");       // icon img
-  const button = document.querySelector("button");      // button click
-  const audio = document.querySelector("audio");        // audio set
   const confetti = new JSConfetti();
-
+  const horn = document.getElementById("horn-select");  // horn select
+  const img = document.querySelector("img");            // horn img
+  const audio = document.querySelector("audio");        // audio set
   horn.addEventListener("change", function() {
     if (horn.value == "air-horn"){
       img.src = "assets/images/air-horn.svg";
@@ -27,6 +23,8 @@ function init() {
     }
   });
 
+  const volume = document.getElementById("volume");     // volume select
+  const icon = document.querySelector("div img");       // icon img
   volume.addEventListener("change", function() {
     audio.volume = volume.value / 100;
     if (volume.value == 0){
@@ -43,6 +41,7 @@ function init() {
     }
   });
 
+  const button = document.querySelector("button");      // button click
   button.addEventListener("click", function() {
     audio.play();
     if (horn.value == "party-horn"){
